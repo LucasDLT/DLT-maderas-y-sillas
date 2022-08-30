@@ -1,0 +1,55 @@
+
+
+
+
+
+@mixin reset{
+          margin: 0px;
+          padding: 0px;
+          box-sizing: border-box;
+          
+}
+
+
+
+@mixin img{
+        display: flex;
+        margin: 20px;
+        height: 100px;
+        width: 100px;
+        border-radius: 70px;
+}
+
+@mixin formulario{
+        color:cornsilk;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
+        width: 600px; 
+        display:flex; 
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 5rem;
+}
+
+@mixin tituloFormulario {
+        color:cornsilk;
+        backdrop-filter: blur(5px);
+        text-align: center;
+        padding: 10px;
+}
+
+
+
+@mixin flexHeader {
+        display: flex;
+        justify-content: space-between;  
+        align-items: center;
+}
+
+@mixin flexBotonesFooter {
+        display: flex; 
+        flex-direction: column;     
+        flex-wrap: wrap;            
+        justify-content: center;
+        align-items: center;
+}
