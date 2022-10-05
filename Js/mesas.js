@@ -1,151 +1,149 @@
-
-//**************ARRAY******************  
-let contenedor = document.getElementById("contenedor");
-let button = document.getElementById("boton");
-
-function clickBoton(){
-    console.log("click");
-}
-
-clickBoton()
-
-
-button.addEventListener("mousedown", () =>  console.log("mousedown"));
-
-const listaMesas = [];
+let contenedor = document.getElementById("contenedor")
+let botonCarrito = document.getElementById("botonCarrito")
+let input = document.getElementById("input")
+let botonInput = document.getElementById("botonInput")
 
 
 //**************CONSTRUCTOR***********
- 
-class Mesa{
-      constructor(infoMesa){
-          this.img = infoMesa.img; 
-          this.nombre = infoMesa.nombre;
-          this.precio = infoMesa.precio;
-          this.vendido = false,
-          this.cantidad = infoMesa.cantidad;
-          this.id = infoMesa.id;
-          this.button = infoMesa.button;
 
-          }
-          //FUNCION VENDER
-          venta(){
-                if (this.vendido = true){
-
-                    this.cantidad = this.cantidad - 1;
-
-                    console.log("elemento vendido")
-                }
-          }             
-    }  
+class Mesa {
+    constructor(infoMesa) {
+        this.img = infoMesa.img;
+        this.nombre = infoMesa.nombre;
+        this.precio = infoMesa.precio;
+        this.vendido = false,
+        this.id = infoMesa.id
+    }
+}
 //**************OBJETOS****************
 
 const mesaExtensible = new Mesa(
     {
-      img:  `../img/mesa.jpg`,
-      nombre: "extensible",
-      precio: 230000,
-      cantidad: 10,
-      id:1,
-      button: "agregar al carrito"
-    }  
-    
-) 
+        img: `../img/mesa.jpg`,
+        nombre: "extensible",
+        precio: 230000,
+        id: 1
+    }
+
+)
 
 const mesaWood = new Mesa(
     {
-        img:`../img/mesaDos.jpg`,
+        img: `../img/mesaDos.jpg`,
         nombre: "wood",
         precio: 250000,
-        cantidad: 10,
-        id:2,
-        boton: "agregar al carrito"
+        id: 2
 
     }
 )
 
 
-const mesaWoodBlack = new Mesa (
+const mesaWoodBlack = new Mesa(
     {
-        img: src= `../img/mesaTres.jpg`,
+        img: src = `../img/mesaTres.jpg`,
         nombre: "wood black",
         precio: 110000,
-        cantidad: 10,
-        id:3,
-        boton: "agregar al carrito"
+        id: 3
 
     }
 )
 
 const mesaStone = new Mesa(
     {
-        img: `../img/mesaCuatro.jpg` ,
-        nombre:"stone",
+        img: `../img/mesaCuatro.jpg`,
+        nombre: "stone",
         precio: 210000,
-        cantidad: 10,
-        id: 4,
-        boton: "agregar al carrito"
+        id: 4
 
     }
 
 )
 
-const mesaFlex = new Mesa (
+const mesaFlex = new Mesa(
     {
-        img:`../img/mesaCinco.jpg`,
-        nombre:"flex",
+        img: `../img/mesaCinco.jpg`,
+        nombre: "flex",
         precio: 130000,
-        cantidad: 10,
-        id: 5,
-        boton: "agregar al carrito"
+        id: 5
 
-        
+
     }
 )
 
 const mesaRedondaWood = new Mesa(
     {
-        img:`../img/mesaSeis.jpg`,
-        nombre:"cuadrada wood",
-        precio:90000,
-        cantidad: 10,
-        id: 6,
-        boton: "agregar al carrito"
+        img: `../img/mesaSeis.jpg`,
+        nombre: "cuadrada wood",
+        precio: 90000,
+        id: 6
 
     }
 )
+//**************ARRAY****************** /
 
+const listaMesas = [];
+const carrito = [];
 
 //********PUSH
- 
+
 listaMesas.push(mesaExtensible, mesaWood, mesaStone, mesaRedondaWood, mesaWoodBlack, mesaFlex);
- 
-
-
-
 
 //FOREACH
 
-
-
-listaMesas.forEach(mesa => {
-    let div = document.createElement("div");
-    let boton = document.createElement("boton");
+listaMesas.forEach(mesa =>{
+    let div = document.createElement("div")
     div.innerHTML = `
-    <div>
-        <h2>Id: ${mesa.id} </h2>
-        <h2>Mesa: ${mesa.nombre} </h2>
-        <p>Valor $: ${mesa.precio} </p>
-        <img src= ${mesa.img}>
-        <button> ${mesa.button}</button>
-    </div>  
-`;
-    contenedor.append(div);
-});
+    <div class="card" style="width: 18rem;">
+        <img src=" ${mesa.img} " class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class= "card-title">Nombre:${mesa.nombre} </h2>
+                <p class="card-text">Precio:${mesa.precio}</p>
+            </div>
+         <button id="${mesa.id}">agregar al carrito</button>
+    </div>`
+    
+    contenedor.append(div)
+    
+  let boton = document.getElementById(mesa.id)
+  boton.addEventListener("click", () => comprarMesa(mesa))
+}
+);
+   
+let comprarMesa = (mesa) =>{
+
+    let busqueda = carrito.find(item => item.id === mesa.id)
+    if (busqueda !== undefined) {
+        busqueda.precio = busqueda.precio + mesa.precio
+        busqueda.cantidad = busqueda.cantidad + 1        
+    } else {
+        carrito.push({
+            id: mesa.id,
+            nombre: mesa.nombre,
+            precio: mesa.precio,
+            imagen: mesa.img,
+            cantidad: 1
+        })
+        
+    }
+
+
+}
+botonCarrito.addEventListener("click", () => console.log(carrito))
+
+/* input.addEventListener("input", () => console.log(input.value))
+ */
+botonInput.addEventListener("click", () => console.log(input.value))
 
 
 
- /*
+
+
+
+
+
+
+
+/*
 //FILTER
 let filtrado = listaMesas.filter(item => item.precio >=200000);
 
@@ -172,25 +170,25 @@ let stock = 10;
 let descuentoFinal = descuentoTotal();
 
 function descuentoTotal () {
-    valorCompra = precio * cantidad;
+   valorCompra = precio * cantidad;
+  
+   if (cantidad > 4 ) {
+       valorDescuento = valorCompra * 0.20;
+       totalPago = valorCompra - valorDescuento;
+
+       alert(`recibiste un descuento del % 30 del valor de tu compra, el total a pagar es de $ ${totalPago}`);
+
+   } else if (cantidad === 0  || precio === 0) {
+       alert(`los datos ingresados no son validos`);
+       
+   } else{
+       alert(`el valor de tu compra es de $ ${valorCompra}`)
+   }
+
    
-    if (cantidad > 4 ) {
-        valorDescuento = valorCompra * 0.20;
-        totalPago = valorCompra - valorDescuento;
-
-        alert(`recibiste un descuento del % 30 del valor de tu compra, el total a pagar es de $ ${totalPago}`);
-
-    } else if (cantidad === 0  || precio === 0) {
-        alert(`los datos ingresados no son validos`);
-        
-    } else{
-        alert(`el valor de tu compra es de $ ${valorCompra}`)
-    }
-
-    
 }
 console.log(`el valor de la compra sin descuento es de $ ${valorCompra}`);
- */
+*/
 
 //const { Console } = require("console");
 
@@ -229,6 +227,4 @@ for (const mesas of li) {// RECORRO EL LISTADO
 }
 
  */
-
-
 
