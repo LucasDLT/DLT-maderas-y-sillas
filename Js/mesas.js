@@ -2,6 +2,7 @@ let contenedor = document.getElementById("contenedor")
 let botonCarrito = document.getElementById("botonCarrito")
 let input = document.getElementById("input")
 let botonInput = document.getElementById("botonInput")
+let botonBorrarCarrito = document.getElementById("eliminarCarrito")
 
 
 //**************CONSTRUCTOR***********
@@ -88,6 +89,7 @@ const carrito = [];
 
 listaMesas.push(mesaExtensible, mesaWood, mesaStone, mesaRedondaWood, mesaWoodBlack, mesaFlex);
 
+
 //FOREACH
 
 listaMesas.forEach(mesa =>{
@@ -108,7 +110,7 @@ listaMesas.forEach(mesa =>{
   boton.addEventListener("click", () => comprarMesa(mesa))
 }
 );
-   
+    
 let comprarMesa = (mesa) =>{
 
     let busqueda = carrito.find(item => item.id === mesa.id)
@@ -125,14 +127,64 @@ let comprarMesa = (mesa) =>{
         })
         
     }
-
-
 }
+
+
+let buscarMesa = (string) =>{
+    console.log(string)
+    let mesaBuscada = listaMesas.find(mesa=> mesa.nombre.includes(string))
+    console.log(mesaBuscada);
+/*     input.value = ' ' CON ESTO ESTOY HACIENDO QUE CUANDO BUSQUE EL BOTON INPUT QUEDE NULO
+ */}
+
+
 botonCarrito.addEventListener("click", () => console.log(carrito))
 
-/* input.addEventListener("input", () => console.log(input.value))
- */
-botonInput.addEventListener("click", () => console.log(input.value))
+input.addEventListener("input", () => buscarMesa(input.value))
+
+
+//STORAGE Y JSON
+
+//  GUARDAR EL ARRAY CON OBJETOS EN STORAGE
+
+let guardarStorage = (clave, valor) =>{localStorage.setItem(clave, valor)};
+
+
+listaMesas.forEach(mesa =>{
+    guardarStorage(mesa.id, JSON.stringify(mesa));
+})
+ 
+
+
+
+//BORRAR CARRITO STORAGE
+botonBorrarCarrito.addEventListener("click", () => {
+   
+    localStorage.clear();
+})
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
