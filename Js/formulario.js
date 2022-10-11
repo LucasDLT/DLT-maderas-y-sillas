@@ -4,16 +4,12 @@ let formulario = document.getElementById("formulario");
 
 const contacto = [];
 
+const guardarContacto = (e) => {
+  e.preventDefault();
+  console.log(e.target.children[3].value);
+};
 
-const guardarContacto = (e) =>{
-         e.preventDefault(); 
-         console.log(e.target.children[3].value);
-          
-
-}
-
-formulario.addEventListener("submit", (e) => guardarContacto(e))
-
+formulario.addEventListener("submit", (e) => guardarContacto(e));
 
 /* let inputs = e.target.children;
  */
@@ -23,13 +19,9 @@ console.log(inputs[3].value);
 console.log(inputs[4].value);
 console.log(inputs[5].value); */
 
-
-
 /* localStorage.setItem("saludo", "hola");
 localStorage.setItem("numero", "5");
 localStorage.setItem("valor", "true"); */
 
-
 /* let mensaje = localStorage.getItem("numero");
 console.log(typeof(mensaje)); */
-

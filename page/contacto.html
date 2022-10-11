@@ -1,116 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="DON SATURNINO, CONTACTO, CONTACTANOS, ESCRIBINOS, CORREO, TELEFONO" >
-    <meta name="description" content="pagina de contacto de DLT mesas y sillas de madera, donde mediante un formulario se envia el producto seleccionado, para que un ascesor en el dia, se contacte e informe mediante el medio seleccionado, los valores del prodcuto, acorde a las medidas solicitadas por el usuario">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="DON SATURNINO, CONTACTO, CONTACTANOS, ESCRIBINOS, CORREO, TELEFONO"
+    />
+    <meta
+      name="description"
+      content="pagina de contacto de DLT mesas y sillas de madera, donde mediante un formulario se envia el producto seleccionado, para que un ascesor en el dia, se contacte e informe mediante el medio seleccionado, los valores del prodcuto, acorde a las medidas solicitadas por el usuario"
+    />
     <!--CSS-->
 
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.css" />
 
-    
     <!--TIPOGRAFIA-->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital@1&display=swap"
+      rel="stylesheet"
+    />
 
     <title>CONTACTO</title>
-</head>
+  </head>
 
-<body class="bodyContacto">
-    
-  <div class="contenedorContacto">
-     <!--LOGO SIN TITULO EN EL MARGEN IZQUIERDO-->
+  <body class="bodyContacto">
+    <div class="contenedorContacto">
+      <!--LOGO SIN TITULO EN EL MARGEN IZQUIERDO-->
 
-    <header class="headerContacto"> 
-        
-       
+      <header class="headerContacto">
         <div>
-                
-            <a href="../index.html"><img src="../img/DON SATURNINO.jpeg" alt="LOGO"></a>
-
-    
+          <a href="../index.html"
+            ><img src="../img/DON SATURNINO.jpeg" alt="LOGO"
+          /></a>
         </div>
 
         <h1>CONTACTANOS</h1>
-    </header>
+      </header>
 
-    <main class="mainContacto" >
+      <main class="mainContacto">
         <!--ACA VOY A PONER UNA IMAGEN DE FONDO-->
-        
-        <div class="parrafo">
 
-            <p>Nuestras maderas son 100% de calidad, los diseños estándares o dinámicos, pueden ser a medida. Contactanos y decinos que mueble te gusto, nosotros lo personalizamos.
-            </p>            
-            <p> No encontraste la pagina de compra? no te preocupes, el sistema es el siguiente: vos seleccionas la unidad que mas te gusto, nos escribis y un asesor se contacta por el medio que especifiques en el mensaje, te van a llegar las especificaciones del producto, con las medidas estandar, los medios de pago, y en caso de haber especificado las medidas de tu eleccion, tambien te envian la cotizacion.               
-            </p>
+        <div class="parrafo">
+          <p>
+            Nuestras maderas son 100% de calidad, los diseños estándares o
+            dinámicos, pueden ser a medida. Contactanos y decinos que mueble te
+            gusto, nosotros lo personalizamos.
+          </p>
+          <p>
+            No encontraste la pagina de compra? no te preocupes, el sistema es
+            el siguiente: vos seleccionas la unidad que mas te gusto, nos
+            escribis y un asesor se contacta por el medio que especifiques en el
+            mensaje, te van a llegar las especificaciones del producto, con las
+            medidas estandar, los medios de pago, y en caso de haber
+            especificado las medidas de tu eleccion, tambien te envian la
+            cotizacion.
+          </p>
         </div>
 
         <!--FORMULARIO-->
 
         <form id="formulario" class="contenedorFormularioContacto" action="">
-        
-                <h2>MUEBLES A TU MEDIDA</h2>
-                <div>
+          <h2>MUEBLES A TU MEDIDA</h2>
+          <div>
+            <label for="nombre">Nombre y apellido</label>
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="Nombre y Apellido"
+            />
+          </div>
 
-                    <label for="nombre">Nombre y apellido</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
-                    
-                </div>
+          <div>
+            <label for="telefono">Numero telefonico</label>
+            <input
+              type="text"
+              name="Telefono"
+              id="telefono"
+              placeholder="Telefono"
+            />
+          </div>
 
-                <div>
+          <div>
+            <label for="Email">correo electronico</label>
+            <input
+              type="text"
+              name="Email"
+              id="mail"
+              placeholder="Ingresa tu Email"
+            />
+          </div>
 
-                    <label for="telefono">Numero telefonico</label>
-                    <input type="text" name="Telefono" id="telefono" placeholder="Telefono">
-                    
-                </div>
+          <div>
+            <label for="Comentario">Te gusto un mueble? escribinos. </label>
+            <textarea name="Comentario" cols="60" rows="10"></textarea>
+          </div>
 
-                <div>
-                   
-                    <label for="Email">correo electronico</label>
-                    <input type="text" name="Email" id="mail" placeholder="Ingresa tu Email" >
-
-                </div>
-
-                <div>
-
-                    <label for="Comentario">Te gusto un mueble? escribinos. </label>
-                    <textarea name="Comentario" cols="60" rows="10"></textarea>
-             
-
-
-                </div>
-
-                <div class="botones">
-
-                    <input type="submit" value="Enviar" id="enviar">
-                    <input type="reset" value="Borrar" id="borrar">
-                
-                </div>                
-            
+          <div class="botones">
+            <input type="submit" value="Enviar" id="enviar" />
+            <input type="reset" value="Borrar" id="borrar" />
+          </div>
         </form>
+      </main>
 
-      
-    </main>
-
-    <footer class="footerContacto">
+      <footer class="footerContacto">
         <!--ESTO TIENE QUE IR A LA IZQUIERDA DE LA PANTALLA-->
         <div class="numeros">
-           <h2>dltmesasysillas@gmail.com</h2>
-           <h3>1122334455 / 43345445</h3>
+          <h2>dltmesasysillas@gmail.com</h2>
+          <h3>1122334455 / 43345445</h3>
         </div>
         <!--REDIRECCIONA A HOME-->
-    
-        <div class="inicioContacto">
-            <a href="../index.html">Inicio</a>
-        </div>
-    
-    </footer>
 
-  </div>
+        <div class="inicioContacto">
+          <a href="../index.html">Inicio</a>
+        </div>
+      </footer>
+    </div>
     <script src="../Js/formulario.js"></script>
-</body>
+  </body>
 </html>
